@@ -8,3 +8,16 @@ Content-Type: application/json
     "email":"YVt0M@example.com",
     "password":"123456"
 }
+
+###
+POST http://localhost:8080/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "email":"YVt0M@example.com",
+    "password":"123456"
+}
+
+###
+GET http://localhost:8080/verperfil?id=678af99cef6c42bbc27df8b8 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzhhZjk5Y2VmNmM0MmJiYzI3ZGY4YjgiLCJhcGVsbGlkb3MiOiJwYWNoZWNvIGRvbWluZ3VleiIsImJpb2dyYWZpYSI6IiIsImVtYWlsIjoiWVZ0ME1AZXhhbXBsZS5jb20iLCJleHAiOjE3MzczMjk1MTAsImZlY2hhX25hY2ltaWVudG8iOiIwMDAxLTAxLTAxVDAwOjAwOjAwWiIsIm5vbWJyZSI6ImNhcmxvcyIsInNpdGlvX3dlYiI6IiJ9.k1ruPotNSVpw4ZX7UUherAAmeGmD46DpHS5ijPI53Y8
