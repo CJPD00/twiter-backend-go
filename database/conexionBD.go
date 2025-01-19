@@ -3,17 +3,22 @@ package database
 import (
 	"context"
 	"log"
+	"os"
 
+	"github.com/joho/godotenv"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
 // MongoCN es el objeto de conexion a la BD
 var MongoCN = ConectarBD()
-var clientOptions = options.Client().ApplyURI("mongodb://localhost:27017/twitter-golang")
 
 // ConectarBD establece la conexion a la base de datos de mongoDB
 func ConectarBD() *mongo.Client {
+	godotenv.Load()
+	var MONGO_URI = os.Getenv("MONGO_URI")
+	var clientOptions = options.Client().ApplyURI(MONGO_URI)
+	log.Println("Conectandose a la BD " + MONGO_URI)
 	client, err := mongo.Connect(context.TODO(), clientOptions)
 	if err != nil {
 		log.Fatal(err.Error())

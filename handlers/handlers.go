@@ -27,6 +27,7 @@ func Manejadores() {
 	if PORT == "" {
 		PORT = "8080"
 	}
+	log.Println("server corriendo en el puerto " + PORT)
 
 	handler := cors.AllowAll().Handler(r)
 

@@ -1,9 +1,11 @@
 package main
 
 import (
+	"log"
+
 	"github.com/CJPD00/twiter-backend-go/database"
 	"github.com/CJPD00/twiter-backend-go/handlers"
-	"log"
+	"github.com/joho/godotenv"
 )
 
 // main inicia el servidor en el puerto definido en la variable PORT.
@@ -14,6 +16,7 @@ import (
 // ejecucion del programa.
 func main() {
 
+	godotenv.Load()
 	if database.ChequeoConnection() == 0 {
 		log.Fatal("Sin conexion a la BD")
 	}
