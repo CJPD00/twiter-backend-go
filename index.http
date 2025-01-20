@@ -10,6 +10,17 @@ Content-Type: application/json
 }
 
 ###
+POST http://localhost:4000/registro HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre":"javier",
+    "apellidos":"perez",
+    "email":"example@gmail.com",
+    "password":"123456"
+}
+
+###
 POST http://localhost:4000/login HTTP/1.1
 Content-Type: application/json
 
@@ -20,7 +31,7 @@ Content-Type: application/json
 
 ###
 GET http://localhost:4000/verperfil?id=678d894b959334b512aa541a HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGVsbGlkb3MiOiJwYWNoZWNvIGRvbWluZ3VleiIsImJpb2dyYWZpYSI6IiIsImVtYWlsIjoiZWplbXBsb19lamVtcGxvQHN1Yi5lamVtcGxvLmNvbSIsImV4cCI6MTczNzQxNTQxMywiZmVjaGFfbmFjaW1pZW50byI6IjAwMDEtMDEtMDFUMDA6MDA6MDBaIiwiaWQiOiI2NzhkODk0Yjk1OTMzNGI1MTJhYTU0MWEiLCJub21icmUiOiJjYXJsb3MiLCJzaXRpb193ZWIiOiIifQ.eDHiLWThv_RAZ3W249j_tU7bQbDP2hJlBCL36Gmy9RY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGVsbGlkb3MiOiJwYWNoZWNvIGRvbWluZ3VleiIsImJpb2dyYWZpYSI6IiIsImVtYWlsIjoiZWplbXBsb19lamVtcGxvQHN1Yi5lamVtcGxvLmNvbSIsImV4cCI6MTczNzQ4NDU0NywiZmVjaGFfbmFjaW1pZW50byI6IjAwMDEtMDEtMDFUMDA6MDA6MDBaIiwiaWQiOiI2NzhkODk0Yjk1OTMzNGI1MTJhYTU0MWEiLCJub21icmUiOiJjYXJsb3MgamF2aWVyIiwic2l0aW9fd2ViIjoiIn0.GwUEc3HUyR-9xa0Bu3p4-vUuVJlT_WEpX7x9Dr9MH4c
 
 ###
 PUT http://localhost:4000/modificarPerfil HTTP/1.1
@@ -41,3 +52,29 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGVsbGlkb3MiOiJwY
 {
     "mensaje":"yo soy un tanque el charli 21"
 }
+
+###
+Post http://localhost:4000/graboTweet HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGVsbGlkb3MiOiJwYWNoZWNvIGRvbWluZ3VleiIsImJpb2dyYWZpYSI6IiIsImVtYWlsIjoiZWplbXBsb19lamVtcGxvQHN1Yi5lamVtcGxvLmNvbSIsImV4cCI6MTczNzQxNTQxMywiZmVjaGFfbmFjaW1pZW50byI6IjAwMDEtMDEtMDFUMDA6MDA6MDBaIiwiaWQiOiI2NzhkODk0Yjk1OTMzNGI1MTJhYTU0MWEiLCJub21icmUiOiJjYXJsb3MiLCJzaXRpb193ZWIiOiIifQ.eDHiLWThv_RAZ3W249j_tU7bQbDP2hJlBCL36Gmy9RY
+
+{
+    "mensaje":"tweet30"
+}
+
+###
+GET http://localhost:4000/leoTweets?id=678d894b959334b512aa541a&page=2 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGVsbGlkb3MiOiJwYWNoZWNvIGRvbWluZ3VleiIsImJpb2dyYWZpYSI6IiIsImVtYWlsIjoiZWplbXBsb19lamVtcGxvQHN1Yi5lamVtcGxvLmNvbSIsImV4cCI6MTczNzQxNTQxMywiZmVjaGFfbmFjaW1pZW50byI6IjAwMDEtMDEtMDFUMDA6MDA6MDBaIiwiaWQiOiI2NzhkODk0Yjk1OTMzNGI1MTJhYTU0MWEiLCJub21icmUiOiJjYXJsb3MiLCJzaXRpb193ZWIiOiIifQ.eDHiLWThv_RAZ3W249j_tU7bQbDP2hJlBCL36Gmy9RY
+
+###
+DELETE http://localhost:4000/borrarTweet?id=678d9ff1e4671a7340c811c7 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGVsbGlkb3MiOiJwYWNoZWNvIGRvbWluZ3VleiIsImJpb2dyYWZpYSI6IiIsImVtYWlsIjoiZWplbXBsb19lamVtcGxvQHN1Yi5lamVtcGxvLmNvbSIsImV4cCI6MTczNzQxNTQxMywiZmVjaGFfbmFjaW1pZW50byI6IjAwMDEtMDEtMDFUMDA6MDA6MDBaIiwiaWQiOiI2NzhkODk0Yjk1OTMzNGI1MTJhYTU0MWEiLCJub21icmUiOiJjYXJsb3MiLCJzaXRpb193ZWIiOiIifQ.eDHiLWThv_RAZ3W249j_tU7bQbDP2hJlBCL36Gmy9RY
+
+###
+POST http://localhost:4000/altaRelacion?id=678eae196108e5a3e16f8d72 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGVsbGlkb3MiOiJwYWNoZWNvIGRvbWluZ3VleiIsImJpb2dyYWZpYSI6IiIsImVtYWlsIjoiZWplbXBsb19lamVtcGxvQHN1Yi5lamVtcGxvLmNvbSIsImV4cCI6MTczNzQ5MDcyMCwiZmVjaGFfbmFjaW1pZW50byI6IjAwMDEtMDEtMDFUMDA6MDA6MDBaIiwiaWQiOiI2NzhkODk0Yjk1OTMzNGI1MTJhYTU0MWEiLCJub21icmUiOiJjYXJsb3MgamF2aWVyIiwic2l0aW9fd2ViIjoiIn0.Rib-u0HuIwGAV4DcIeP5qVLHI5eQGTE53RjbdKDKx8U
+
+
+###
+DELETE  http://localhost:4000/bajaRelacion?id=678eae196108e5a3e16f8d72 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGVsbGlkb3MiOiJwYWNoZWNvIGRvbWluZ3VleiIsImJpb2dyYWZpYSI6IiIsImVtYWlsIjoiZWplbXBsb19lamVtcGxvQHN1Yi5lamVtcGxvLmNvbSIsImV4cCI6MTczNzQ5MDcyMCwiZmVjaGFfbmFjaW1pZW50byI6IjAwMDEtMDEtMDFUMDA6MDA6MDBaIiwiaWQiOiI2NzhkODk0Yjk1OTMzNGI1MTJhYTU0MWEiLCJub21icmUiOiJjYXJsb3MgamF2aWVyIiwic2l0aW9fd2ViIjoiIn0.Rib-u0HuIwGAV4DcIeP5qVLHI5eQGTE53RjbdKDKx8U

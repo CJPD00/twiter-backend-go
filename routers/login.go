@@ -41,6 +41,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 	jwtKey, err := jwt.GeneroJWT(documento)
 
 	if err != nil {
+		
 		http.Error(w, "Error al generar el token "+err.Error(), 400)
 		return
 	}
