@@ -4,6 +4,7 @@ import (
 	"context"
 	"time"
 
+	"github.com/CJPD00/twiter-backend-go/helpers"
 	"github.com/CJPD00/twiter-backend-go/models"
 
 	"go.mongodb.org/mongo-driver/bson/primitive"
@@ -24,7 +25,7 @@ func InsertoRegistro(u models.Usuario) (string, bool, error) {
 
 	col := db.Collection("usuarios")
 
-	u.Password, _ = EncriptarPassword(u.Password)
+	u.Password, _ = helpers.EncriptarPassword(u.Password)
 
 	result, err := col.InsertOne(ctx, u)
 

@@ -2,11 +2,14 @@ package routers
 
 import (
 	"errors"
+	"log"
+	"os"
 	"strings"
 
 	"github.com/CJPD00/twiter-backend-go/database"
 	"github.com/CJPD00/twiter-backend-go/models"
 	jwt "github.com/dgrijalva/jwt-go"
+	"github.com/joho/godotenv"
 )
 
 // Email usado en todos los endpoints
@@ -23,7 +26,9 @@ var IDUsuario string
 // un error.
 func ProcesoToken(t string) (*models.Claim, bool, string, error) {
 
-	miClave := []byte("c00120262364")
+	godotenv.Load()
+	clave := os.Getenv("SECRET_KEY")
+	miClave := []byte(clave)
 	claims := &models.Claim{}
 
 	splitToken := strings.Split(t, "Bearer")
@@ -38,14 +43,21 @@ func ProcesoToken(t string) (*models.Claim, bool, string, error) {
 		return miClave, nil
 	})
 
+	log.Printf("claims: %v", claims)
+
 	if err == nil {
 		_, encontrado, _ := database.ChequeoYaExisteUsuario(claims.Email)
 		if encontrado {
+
 			Email = claims.Email
 			IDUsuario = claims.ID.Hex()
+			log.Printf("Email: %v", Email)
+			log.Printf("ID: %v", IDUsuario)
+
+			return claims, encontrado, IDUsuario, nil
 		}
 
-		return claims, encontrado, IDUsuario, nil
+		return claims, encontrado, IDUsuario, errors.New("usuario no encontrado")
 
 	}
 

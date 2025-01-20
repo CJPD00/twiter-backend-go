@@ -2,9 +2,12 @@ package routers
 
 import (
 	"encoding/json"
-	"github.com/CJPD00/twiter-backend-go/database"
-	"github.com/CJPD00/twiter-backend-go/models"
 	"net/http"
+	"strings"
+
+	"github.com/CJPD00/twiter-backend-go/database"
+	"github.com/CJPD00/twiter-backend-go/helpers"
+	"github.com/CJPD00/twiter-backend-go/models"
 )
 
 // Registro permite crear un nuevo usuario en la base de datos.
@@ -24,6 +27,13 @@ func Registro(w http.ResponseWriter, r *http.Request) {
 
 	if len(t.Email) == 0 {
 		http.Error(w, "El email de usuario es requerido", 400)
+		return
+	}
+
+	t.Email = strings.ToLower(t.Email)
+
+	if !helpers.ValidarEmail(t.Email) {
+		http.Error(w, "El email de usuario no es valido", 400)
 		return
 	}
 
