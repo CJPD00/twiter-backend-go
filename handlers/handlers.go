@@ -34,6 +34,11 @@ func Manejadores() {
 
 	r.HandleFunc("/altaRelacion", middlewares.ChequeoBD(middlewares.ValidarJWT(routers.AltaRelacion))).Methods("POST")
 	r.HandleFunc("/bajaRelacion", middlewares.ChequeoBD(middlewares.ValidarJWT(routers.BajaRelacion))).Methods("DELETE")
+	r.HandleFunc("/consultaRelacion", middlewares.ChequeoBD(middlewares.ValidarJWT(routers.ConsultaRelacion))).Methods("GET")
+
+	r.HandleFunc("/listarUsuarios", middlewares.ChequeoBD(middlewares.ValidarJWT(routers.ListaUsuarios))).Methods("GET")
+
+	r.HandleFunc("/leoTweetsRelacion", middlewares.ChequeoBD(middlewares.ValidarJWT(routers.LeoTweetsRelacion))).Methods("GET")
 
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
