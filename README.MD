@@ -1,10 +1,11 @@
 #  TWITER-BACKEND-GO
 
-# VARIABLES DE ENTORNO
-PORT:STRING
-MONGO_URI:STRING
-SECRET_KEY:STRING
+# Environment Variables
 
-SECRET_KEY es una variable de entorno que se utiliza para firmar y verificar los tokens JWT.
-MONGO_URI es una variable de entorno que se utiliza para establecer la conexión a la base de datos MongoDB.
-PORT es una variable de entorno que se utiliza para establecer el puerto en el que se levanta el servidor.
+The following environment variables must be set:
+
+* `PORT`: The port number to use for the server.
+* `MONGO_URI`: The URI to use when connecting to the MongoDB database.
+* `SECRET_KEY`: The secret key to use when signing and verifying JWT tokens.
+
+* Note: All environment variables must be strings.
