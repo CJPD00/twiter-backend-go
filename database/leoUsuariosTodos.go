@@ -50,9 +50,14 @@ func LeoUsuariosTodos(ID string, page int64, search string, tipo string) ([]mode
 		r.UsuarioID = ID
 		r.UsuarioRelacionID = s.ID.Hex()
 
+		var r2 models.Relacion
+		r2.UsuarioID = s.ID.Hex()
+		r2.UsuarioRelacionID = ID
+
 		incluir = false
 
 		encontrado, _ = ConsultoRelacion(r)
+		econtrado2, _ := ConsultoRelacion(r2)
 
 		log.Println(encontrado)
 
@@ -66,6 +71,10 @@ func LeoUsuariosTodos(ID string, page int64, search string, tipo string) ([]mode
 
 		if r.UsuarioRelacionID == ID {
 			incluir = false
+		}
+
+		if tipo == "followMe" && econtrado2 {
+			incluir = true
 		}
 
 		if incluir {
